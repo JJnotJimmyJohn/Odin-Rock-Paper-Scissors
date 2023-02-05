@@ -1,6 +1,4 @@
-// alert("here you are!!")
-
-// console.log("Logging.............")
+`use strict`
 
 const choices=['rock','paper','scissors']
 
@@ -19,10 +17,9 @@ function getPlayerChoice() {
 }
 
 
-
 function getResult(playerSelection,computerSelection) {
     if (playerSelection==computerSelection) {
-        return "Tie!! Your "+ playerSelection + " ties with AI's " + computerSelection;
+        return [0,0,"Tie!! Your "+ playerSelection + " ties with AI's " + computerSelection];
     } else if ((playerSelection=="rock")&(computerSelection=="scissors")) {
         return youWinStatement(playerSelection,computerSelection);
     } else if ((playerSelection=="paper")&(computerSelection=="rock")) {
@@ -30,12 +27,12 @@ function getResult(playerSelection,computerSelection) {
     } else if ((playerSelection=="scissors")&(computerSelection=="paper")) {
         return youWinStatement(playerSelection,computerSelection);
     } else {
-        return "You lose!! Your "+ playerSelection + " lost to AI's " + computerSelection;
+        return [0,1,"You lose!! Your "+ playerSelection + " lost to AI's " + computerSelection];
     }
 }
 
 function youWinStatement(playerSelection,computerSelection) {
-    return "You win!! Your "+ playerSelection + " beats AI's " + computerSelection
+    return [1,0,"You win!! Your "+ playerSelection + " beats AI's " + computerSelection];
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -43,9 +40,16 @@ function playRound(playerSelection, computerSelection) {
 
     playerSelection=playerSelection.toLowerCase();
     computerSelection=computerSelection.toLowerCase();
+
+    result = getResult(playerSelection,computerSelection)
     
-    console.log(getResult(playerSelection,computerSelection));
+    console.log(result[2],'!! you get ',result[0], ' point!');
+
+    return result
   }
 
-
-// playRound(getPlayerChoice(),getComputerChoice())
+function game(round=5) {
+    for (let i=0;i<round;i++) {
+        playRound(getPlayerChoice(),getComputerChoice())
+    }
+}
