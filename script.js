@@ -1,6 +1,6 @@
 `use strict`
 
-import Math
+// import Math
 
 const choices=['rock','paper','scissors']
 
@@ -70,6 +70,11 @@ function remove_all() {
         element.remove();
         console.log('removed')
     });
+
+    paragraphs = Array.from(body.querySelectorAll('.styled-paragraph'));
+    paragraphs.forEach(element => {
+        element.innerText='';
+    });
 }
 
 let running_score = 0;
@@ -77,18 +82,35 @@ let running_score = 0;
 const rock_button = document.querySelector('#rock')
 rock_button.addEventListener("click", () => {
     console.log('Rock is clicked');
-    playRound("rock", getComputerChoice());
-    
+    let computerSelection = getComputerChoice();
+    playRound("rock", computerSelection);
+    let humanSelection_p = document.querySelector("#human-selection")
+    humanSelection_p.innerText="Rock"
+
+    let computerSelection_p = document.querySelector("#computer-selection")
+    computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 })
 
 const paper_button = document.querySelector('#paper')
 paper_button.addEventListener("click", () => {
     console.log('Paper is clicked');
-    playRound("paper", getComputerChoice());
+    let computerSelection = getComputerChoice();
+    playRound("paper", computerSelection);
+    let humanSelection_p = document.querySelector("#human-selection")
+    humanSelection_p.innerText="Paper"
+
+    let computerSelection_p = document.querySelector("#computer-selection")
+    computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 })
 
 const scissor_button = document.querySelector('#scissor')
 scissor_button.addEventListener("click", () => {
-    console.log('Scissor is clicked');
-    playRound("scissor", getComputerChoice());
+    console.log('Scissors is clicked');
+    let computerSelection = getComputerChoice();
+    playRound("Scissors", computerSelection);
+    let humanSelection_p = document.querySelector("#human-selection")
+    humanSelection_p.innerText="Scissors"
+
+    let computerSelection_p = document.querySelector("#computer-selection")
+    computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 })
