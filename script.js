@@ -1,7 +1,5 @@
 `use strict`
 
-// import Math
-
 const choices=['rock','paper','scissors']
 
 function getComputerChoice() {
@@ -77,7 +75,7 @@ function remove_all() {
     });
 }
 
-let running_score = 0;
+let score_counter = [0,0];
 
 const rock_button = document.querySelector('#rock')
 rock_button.addEventListener("click", () => {
@@ -89,6 +87,25 @@ rock_button.addEventListener("click", () => {
 
     let computerSelection_p = document.querySelector("#computer-selection")
     computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
+    score_counter[0] += result[0]
+    score_counter[1] += result[1]
+    
+    console.log(`highest score is ${Math.max(result[0],result[1])}`)
+    let humanScoreSpan=document.querySelector("#humanscore");
+    humanScoreSpan.textContent=score_counter[0];
+
+    let computerScoreSpan=document.querySelector("#computerscore");
+    computerScoreSpan.textContent=score_counter[1];
+
+    if (Math.max(score_counter[0],score_counter[1])==5) {
+        alert('game over!')
+        remove_all()
+        score_counter = [0,0]
+        humanScoreSpan.textContent=score_counter[0];
+        computerScoreSpan.textContent=score_counter[1];
+
+    }
 })
 
 const paper_button = document.querySelector('#paper')
@@ -101,6 +118,26 @@ paper_button.addEventListener("click", () => {
 
     let computerSelection_p = document.querySelector("#computer-selection")
     computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
+    
+    score_counter[0] += result[0]
+    score_counter[1] += result[1]
+    
+    console.log(`highest score is ${Math.max(result[0],result[1])}`)
+    let humanScoreSpan=document.querySelector("#humanscore");
+    humanScoreSpan.textContent=score_counter[0];
+
+    let computerScoreSpan=document.querySelector("#computerscore");
+    computerScoreSpan.textContent=score_counter[1];
+
+    if (Math.max(score_counter[0],score_counter[1])==5) {
+        alert('game over!')
+        remove_all()
+        score_counter = [0,0]
+        humanScoreSpan.textContent=score_counter[0];
+        computerScoreSpan.textContent=score_counter[1];
+
+    }
 })
 
 const scissor_button = document.querySelector('#scissor')
@@ -113,4 +150,24 @@ scissor_button.addEventListener("click", () => {
 
     let computerSelection_p = document.querySelector("#computer-selection")
     computerSelection_p.innerText=computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
+
+    score_counter[0] += result[0]
+    score_counter[1] += result[1]
+    
+    console.log(`highest score is ${Math.max(result[0],result[1])}`)
+    let humanScoreSpan=document.querySelector("#humanscore");
+    humanScoreSpan.textContent=score_counter[0];
+
+    let computerScoreSpan=document.querySelector("#computerscore");
+    computerScoreSpan.textContent=score_counter[1];
+
+    if (Math.max(score_counter[0],score_counter[1])==5) {
+        alert('game over!')
+        remove_all()
+        score_counter = [0,0]
+        humanScoreSpan.textContent=score_counter[0];
+        computerScoreSpan.textContent=score_counter[1];
+
+    }
 })
