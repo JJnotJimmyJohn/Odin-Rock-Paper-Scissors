@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <script src="script.js"></script>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <button onclick="playRound(getPlayerChoice(),getComputerChoice())">Play One Round</button>
-    <button onclick="game(6)">Play One Game</button>
+    <p >human: <span id="humanscore">0</span></p>
+    <p >computer: <span id="computerscore">0</span></p>
+    <div class="human">
+        <button id='rock' onclick="">Rock</button>
+        <button id='paper' onclick="">Paper</button>
+        <button id='scissor' onclick="">Scissor</button>
+    </div>
+    <div class="human-selection">
+        <p class="styled-paragraph" id="human-selection"></p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="computer-selection">
+        <p class="styled-paragraph" id="computer-selection"></p>
+    </div>
+    <div class="computer">
+        <p id="computer">Computer</p>
+    </div>
+    <br>
+    <br>
+    <div class="clear">
+        <button onclick="remove_all()">Clear Results</button>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
